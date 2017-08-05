@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-// import VideoList from './components/VideoList';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav>
-        </nav>
+          <Header />  
         {this.props.children}
       </div>
     );

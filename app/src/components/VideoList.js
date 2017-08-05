@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import axios from 'axios';
 const YouTubeIframeLoader = require('youtube-iframe') ;
 
@@ -46,7 +46,7 @@ componentWillMount(){
             )
         })
         return (
-                <div>
+                <div className = 'vlist'>
                     {vlist}
                 </div>
         )
@@ -59,23 +59,47 @@ class Video extends Component {
         let videoId = this.props.id;
         YouTubeIframeLoader.load(function(YT) {
         new YT.Player('player' + videoId, {
-          height: '390',
-          width: '640',
+          height: '360',
+          width: '600',
           videoId: videoId
         });
       });
 
 
         return (
-                <div>
-                    <h1> {this.props.title} </h1>
-                    <div id={'player' + videoId}></div>
-                    <p>{this.props.description}</p>
-                    <p>{this.props.user}<span>{this.props.views}</span></p>
-                    <p>{this.props.date}</p>
-                    {/* <p>{tagList}</p> */}
+                <div className='row'>
+
+                <div className='col-md-8'>
+                    <div className="panel panel-primary">
+                    <div classname="panel-heading"><h2 > {this.props.title} </h2></div>
+                    <div classname="panel-body" >
+                        <div id={'player' + videoId}>
+                        </div>
+
+                    <div classname="panel-footer">
+                        <h4>User: {this.props.user}</h4>
+                        <h4>Views: {this.props.views}</h4>
+                        <p>Date: {this.props.date}</p>
+                    </div>
+
+                        <button type="button" className="btn btn-info btn-video" data-toggle="collapse" data-target={"#v" + videoId}>View/Hide Description</button>
+                        <div id={"v" + videoId} className="collapse out">
+                            <p className ='vDescription'>{this.props.description}</p>  
+                        </div>
+
+
+                    </div>
+                    </div>
                     
                 </div>
+
+                <div className='col-md-4 well well-lg'>
+                    <h3>Related Videos</h3>
+                    <p>image and title</p>
+                </div>
+
+                </div>
+
         )
     }
 }
