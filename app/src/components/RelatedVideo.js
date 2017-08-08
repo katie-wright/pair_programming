@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import Modal from './Modal';
+import Modal from './Modal';
 // import {Link} from 'react-router';
 import axios from 'axios';
-const YouTubeIframeLoader = require('youtube-iframe') ;
+// const YouTubeIframeLoader = require('youtube-iframe') ;
 
 
 class RelatedVideoList extends Component {
@@ -55,42 +55,27 @@ class RelatedVideoList extends Component {
 
 
 class RelatedVideo extends Component {
+    constructor() {
+        super();
+        this.state = {
+            modal: false
+        }
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+    toggleModal(){
+        this.setState({
+            modal:!(this.state.modal)
+        })
+    }
     render() {
-        console.log("ID:", this.props.id)
-        let videoId = this.props.id;
-        YouTubeIframeLoader.load(function(YT) {
-                                new YT.Player('player' + videoId, {
-                                height: '420',
-                                width: '640',
-                                videoId: videoId
-                                });
-                            });
                             
         return (
             <div>
                 <span> 
                     <img src={this.props.thumbnailURL} />
                     <p> {this.props.title} </p>
-                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Play</button>
-                    
-                    <div id="myModal" className="modal fade" role="dialog">
-                    <div className="modal-dialog">
-
-                        <div className="modal-content">
-                        <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            <h4 className="modal-title">{this.props.title}</h4>
-                        </div>
-                        <div className="modal-body">
-                            <div id={'player' + videoId}>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                        </div>
-                </div>
-            </div>
+                    <button type="button" onClick={this.toggleModal} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Play</button>
+                    <Modal id={this.props.id} title={this.props.title} onClose={this.toggleModal} />
                 </span>
             </div>
         )
