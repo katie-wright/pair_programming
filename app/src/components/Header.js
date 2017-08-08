@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import axios from 'axios';
 
 class Header extends Component {
@@ -91,7 +91,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <li><Link to={`/${this.props.categoryId}`}> {this.props.categoryName} </Link> </li>
+            <li><a href={`/${this.props.categoryId}`}> {this.props.categoryName} </a> </li>
         )
     }
 
