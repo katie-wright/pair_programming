@@ -71,12 +71,12 @@ class Video extends Component {
 
                 <div className='col-md-8'>
                     <div className="panel panel-primary">
-                    <div classname="panel-heading"><h2 > {this.props.title} </h2></div>
-                    <div classname="panel-body" >
+                    <div className="panel-heading"><h2 > {this.props.title} </h2></div>
+                    <div className="panel-body" >
                         <div id={'player' + videoId}>
                         </div>
 
-                    <div classname="panel-footer">
+                    <div className="panel-footer">
                         <h4>User: {this.props.user}</h4>
                         <h4>Views: {this.props.views}</h4>
                         <p>Date: {this.props.date}</p>
@@ -95,7 +95,7 @@ class Video extends Component {
 
                 <div className='col-md-4 well well-lg'>
                     <h3>Related Videos</h3>
-                    <p>image and title</p>
+                    <p> image and title </p>
                 </div>
 
                 </div>

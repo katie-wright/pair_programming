@@ -68,7 +68,7 @@ componentWillMount(){
 
                         <li className="dropdown">
                             <a className="dropdown-toggle" data-toggle="dropdown" href="/">Other Categories
-                            <span class="caret"></span></a>
+                            <span className="caret"></span></a>
                             
                                 <ul className="dropdown-menu">
                                         {catList} 

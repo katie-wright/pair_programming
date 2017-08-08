@@ -3,17 +3,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 
-class relatedVideoList extends component {
+class RelatedVideoList extends Component {
     constructor() {
         super();
         this.state={
             videos:[]
             }
         }
-    }
 
 componentWillMount () {
-
      const promise = axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         'key': 'AIzaSyC5lJIkV7lPWS9p_gC3LB50Yy8fQOrKjuY',
@@ -23,51 +21,44 @@ componentWillMount () {
     }});
     promise.then(result=>{
       console.log("Success!");
-      console.log(result);
+      console.log("RelatedVideos:" + result);
       this.setState({
         videos: result.data.items
-
       })
     });
     promise.catch(error=>{
       console.log(error);
     });
   }
+  
+    render() {
 
-
-    render () {
-
-        let relatedVideoList = relatedVideos.map((video)=> {
-    return (
-        <related 
-            id={video.id}
-            title={video.snippet.title}
-            thumbnailURL={video.snippet.thumbnails.default.url} />
-    )
-})
+    let relatedVideoList = this.state.videos.map((video)=> {
+            return (
+                <RelatedVideo 
+                    id={video.id}
+                    title={video.snippet.title}
+                    thumbnailURL={video.snippet.thumbnails.default.url} />
+            )
+        })
 
         return (
             <div>
-
-
+                {relatedVideoList}
             </div>
 
         )
 
 
-
+    }
     }
 
 
-
-
-
-class relatedVideo extends Component {
+class RelatedVideo extends Component {
     render () {
 
         return (
             <div>
-
 
             </div>
 
@@ -77,4 +68,4 @@ class relatedVideo extends Component {
     }
 }
 
-export default relatedVideoList;
+export default RelatedVideoList;
