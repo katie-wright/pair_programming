@@ -96,7 +96,6 @@ class Video extends Component {
                 </div>
 
                 <div className='col-md-4 well well-lg'>
-                    <h3>Related Videos</h3>
                     <RelatedVideoList videoId={videoId} />
                 </div>
 

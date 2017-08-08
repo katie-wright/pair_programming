@@ -45,9 +45,17 @@ class RelatedVideoList extends Component {
         })
 
         return (
-            <div>
-                {relatedVideoList}
+
+            <div class="container">
+                <h2>Related Videos</h2>        
+                <table class="table table-striped">
+                    <tbody>
+                        {relatedVideoList}
+                    </tbody>
+                </table>
             </div>
+
+
 
         )
     }
@@ -59,14 +67,13 @@ class RelatedVideo extends Component {
     render() {
                             
         return (
-            <div>
-                <span> 
-                    <img src={this.props.thumbnailURL} />
-                    <p> {this.props.title} </p>
-                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target={"#myModal" + this.props.id}>Play</button>
+            // <div>
+                <tr className='rvRow'>
+                    <td><img src={this.props.thumbnailURL} /></td>
+                    <td className='rvTitle'><a data-toggle="modal" data-target={"#myModal" + this.props.id}>{this.props.title}</a> </td>
                     <Modal id={this.props.id} title={this.props.title} />
-                </span>
-            </div>
+                </tr>            
+
         )
 
 
