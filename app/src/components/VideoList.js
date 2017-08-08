@@ -95,7 +95,7 @@ class Video extends Component {
 
                 <div className='col-md-4 well well-lg'>
                     <h3>Related Videos</h3>
-                    <p> image and title </p>
+                    {/*import RelatedVideoList component and pass it videoId*/}
                 </div>
 
                 </div>
