@@ -55,18 +55,7 @@ class RelatedVideoList extends Component {
 
 
 class RelatedVideo extends Component {
-    constructor() {
-        super();
-        this.state = {
-            modal: false
-        }
-        this.toggleModal = this.toggleModal.bind(this);
-    }
-    toggleModal(){
-        this.setState({
-            modal:!(this.state.modal)
-        })
-    }
+
     render() {
                             
         return (
@@ -74,8 +63,8 @@ class RelatedVideo extends Component {
                 <span> 
                     <img src={this.props.thumbnailURL} />
                     <p> {this.props.title} </p>
-                    <button type="button" onClick={this.toggleModal} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Play</button>
-                    <Modal id={this.props.id} title={this.props.title} onClose={this.toggleModal} />
+                    <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target={"#myModal" + this.props.id}>Play</button>
+                    <Modal id={this.props.id} title={this.props.title} />
                 </span>
             </div>
         )

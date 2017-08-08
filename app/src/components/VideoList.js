@@ -21,8 +21,8 @@ componentWillMount(){
                  'videoCategoryId': this.props.params.category}
     });
     promise.then(result=>{
-      console.log("Success!");
-      console.log(result);
+
+      console.log('this is it', result.data.items);
       this.setState({
         videos: result.data.items
       })
@@ -48,6 +48,7 @@ componentWillMount(){
         })
         return (
                 <div className = 'vlist'>
+                    <h2>{this.props.currentCategory}</h2>
                     {vlist}
                 </div>
         )

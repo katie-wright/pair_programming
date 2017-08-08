@@ -1,54 +1,11 @@
 import React, {Component} from 'react';
-// import {Link} from 'react-router';
+import {Link} from 'react-router';
 import axios from 'axios';
 
 class Header extends Component {
-    constructor() {
-        super();
-        this.state={
-            categoryList:[]
-        }
-
-    }
-
-componentWillMount(){
-    const promise = axios.get('https://www.googleapis.com/youtube/v3/videoCategories', {
-      params: {
-        'key': 'AIzaSyC5lJIkV7lPWS9p_gC3LB50Yy8fQOrKjuY',
-        'part': 'snippet',
-        'regionCode': 'CA'}      
-    });
-    promise.then(result=>{
-      console.log("Success!");
-      console.log('CWM categoryList', result.data.items);
-      this.setState({
-        categoryList: result.data.items
-      })
-      let catId = this.props.category;
-      console.log("ID from url:", catId);
-      let currentCategory = this.state.categoryList.find((cat)=>{
-          return cat.id === catId
-      });
-      console.log("CWM", currentCategory);
-    });
-    promise.catch(error=>{
-      console.log(error);
-    });
-  }  
-
-//   componentDidMount() {
-//       console.log("CDM1", this.state.categoryList);
-//       let catId = this.props.category;
-//       let currentCategory = this.state.categoryList.find((cat)=>{
-//           return cat.id === catId
-//       });
-//       console.log("CDM2", currentCategory);
-//     //   document.title = "The Top 5 |" + currentCategory.snippet.title;
-//   }
-
 
     render(){
-        let catList = this.state.categoryList.map((cat,i)=>{
+        let catList = this.props.categoryList.map((cat,i)=>{
             return (
                 <Navbar 
                     categoryId={cat.id}   
@@ -67,17 +24,13 @@ componentWillMount(){
                         <a className="navbar-brand" href="/"><img alt="the Top 5" src="TheTop5.jpg" width="100" /></a> 
                         <span className="navbar-text"> YouTube's Hottest</span>
 
-                        {/* <form className="navbar-form navbar-right">
-                            <input className="form-control" type="text" placeholder="Search"/>
-                            <button className="btn btn-default" type="submit">Search</button>
-                        </form>   */}
 
                     <div className="container">
                     <ul className="nav navbar-nav navbar-inverse navbar-center">
 
                         <li className="active"><a href="/">Top</a></li> 
                         <li className="active"><a href="/23">Comedy</a></li>
-                        <li className="active"><a href="/23">Entertainment</a></li>
+                        <li className="active"><a href="/24">Entertainment</a></li>
                         <li className="active"><a href="/1">Film</a></li>
                         <li className="active"><a href="/15">Pets / Animals</a></li>
                         <li className="active"><a href="/28">Science/Tech</a></li>
