@@ -20,15 +20,31 @@ componentWillMount(){
     });
     promise.then(result=>{
       console.log("Success!");
-      console.log('categoryList', result.data.items);
+      console.log('CWM categoryList', result.data.items);
       this.setState({
         categoryList: result.data.items
       })
+      let catId = this.props.category;
+      console.log("ID from url:", catId);
+      let currentCategory = this.state.categoryList.find((cat)=>{
+          return cat.id === catId
+      });
+      console.log("CWM", currentCategory);
     });
     promise.catch(error=>{
       console.log(error);
     });
   }  
+
+//   componentDidMount() {
+//       console.log("CDM1", this.state.categoryList);
+//       let catId = this.props.category;
+//       let currentCategory = this.state.categoryList.find((cat)=>{
+//           return cat.id === catId
+//       });
+//       console.log("CDM2", currentCategory);
+//     //   document.title = "The Top 5 |" + currentCategory.snippet.title;
+//   }
 
 
     render(){

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import {Link} from 'react-router';
 import axios from 'axios';
+import RelatedVideoList from "./RelatedVideo";
 const YouTubeIframeLoader = require('youtube-iframe') ;
 
 class VideoList extends Component {
@@ -95,7 +96,7 @@ class Video extends Component {
 
                 <div className='col-md-4 well well-lg'>
                     <h3>Related Videos</h3>
-                    {/*import RelatedVideoList component and pass it videoId in props*/}
+                    <RelatedVideoList videoId={videoId} />
                 </div>
 
                 </div>

@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header />  
+          <Header category={this.props.params.category}/>  
         {this.props.children}
       </div>
     );
