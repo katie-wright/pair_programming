@@ -49,7 +49,12 @@ class App extends Component {
       <div className="App">
           <Header categoryList = {this.state.categoryList}/>  
         {React.cloneElement(this.props.children, {currentCategory: this.state.currentCategory})}
+
+      <div className='alert alert-success'><p>This site is not affiliated with Google.com. youTube is a registered trademark of Google.</p> 
+      <p>The Top Five was a sample site produced by Katie Wright and Hugh Thompson for demonstration purposes only.</p></div>
+
       </div>
+
     );
   }
 }
