@@ -32,7 +32,7 @@ class App extends Component {
               this.setState({
                 currentCategory: currentCategory.snippet.title
               })
-              document.title = 'Top Five Videos in ' + currentCategory.snippet.title;}
+              document.title = 'The Top Five in ' + currentCategory.snippet.title;}
             else {
 
                 document.title = "The Top Five";
@@ -50,7 +50,7 @@ class App extends Component {
           <Header categoryList = {this.state.categoryList}/>  
         {React.cloneElement(this.props.children, {currentCategory: this.state.currentCategory})}
 
-      <div className='alert alert-success'><p>This site is not affiliated with Google.com. youTube is a registered trademark of Google.</p> 
+      <div className='alert alert-success'><p>This site is not affiliated with Google.com. YouTube is a registered trademark of Google.</p> 
       <p>The Top Five was a sample site produced by Katie Wright and Hugh Thompson for demonstration purposes only.</p></div>
 
       </div>

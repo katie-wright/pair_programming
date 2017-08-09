@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import {Link} from 'react-router';
-import axios from 'axios';
 const YouTubeIframeLoader = require('youtube-iframe') ;
 
 class Modal extends Component {
@@ -11,11 +9,12 @@ class Modal extends Component {
     
 
     killModal () {
-            document.getElementById('player' + this.props.id).remove();
-        }
+        let player = document.getElementById('player' + this.props.id);
+        player.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        // document.getElementById('player' + this.props.id).remove();
+    }
         
     render() {
-        console.log("modal player:", this.modalPlayer)
         let videoId = this.props.id;
         YouTubeIframeLoader.load(function(YT) {
                                 new YT.Player('player' + videoId, {
@@ -48,8 +47,4 @@ class Modal extends Component {
 }
 
 export default Modal;
-/*
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-<!-- Modal -->*/

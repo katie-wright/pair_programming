@@ -23,8 +23,6 @@ class RelatedVideoList extends Component {
             }
         });
         promise.then(result => {
-            console.log("Success!");
-            console.log("RelatedVideos:" + result);
             this.setState({
                 videos: result.data.items
             })
@@ -35,9 +33,10 @@ class RelatedVideoList extends Component {
     }
 
     render() {
-        let relatedVideoList = this.state.videos.map((video) => {
+        let relatedVideoList = this.state.videos.map((video, i) => {
             return (
                 <RelatedVideo
+                    key={i}
                     id={video.id.videoId}
                     title={video.snippet.title}
                     thumbnailURL={video.snippet.thumbnails.default.url} />
@@ -67,10 +66,9 @@ class RelatedVideo extends Component {
     render() {
                             
         return (
-            // <div>
                 <tr className='rvRow'>
                     <td><img src={this.props.thumbnailURL} /></td>
-                    <td className='rvTitle'><a data-toggle="modal" data-target={"#myModal" + this.props.id}>{this.props.title}</a> </td>
+                    <td className='rvTitle'><a role="button" data-toggle="modal" data-target={"#myModal" + this.props.id}>{this.props.title}</a> </td>
                     <Modal id={this.props.id} title={this.props.title} />
                 </tr>            
 

@@ -29,3 +29,7 @@ body {
   text-align: left;
   margin-left: 10px;
 }
+
+.whiteText {
+  color: white;
+}

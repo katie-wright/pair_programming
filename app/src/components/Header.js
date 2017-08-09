@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
-import axios from 'axios';
+// import {Link} from 'react-router';
 
 class Header extends Component {
 
@@ -8,6 +7,7 @@ class Header extends Component {
         let catList = this.props.categoryList.map((cat,i)=>{
             return (
                 <Navbar 
+                    key={i}            
                     categoryId={cat.id}   
                     categoryName={cat.snippet.title}
                     />
@@ -28,15 +28,15 @@ class Header extends Component {
                     <div className="container">
                     <ul className="nav navbar-nav navbar-inverse navbar-center">
 
-                        <li className="active"><a href="/">Top</a></li> 
-                        <li className="active"><a href="/23">Comedy</a></li>
-                        <li className="active"><a href="/24">Entertainment</a></li>
-                        <li className="active"><a href="/1">Film</a></li>
-                        <li className="active"><a href="/15">Pets / Animals</a></li>
-                        <li className="active"><a href="/28">Science/Tech</a></li>
+                        <li className="active"><a className="whiteText" href="/">Top</a></li> 
+                        <li className="active"><a className="whiteText" href="/23">Comedy</a></li>
+                        <li className="active"><a className="whiteText" href="/24">Entertainment</a></li>
+                        <li className="active"><a className="whiteText" href="/1">Film</a></li>
+                        <li className="active"><a className="whiteText" href="/15">Pets / Animals</a></li>
+                        <li className="active"><a className="whiteText" href="/28">Science/Tech</a></li>
 
                         <li className="dropdown">
-                            <a className="dropdown-toggle" data-toggle="dropdown" href="/">Other Categories
+                            <a className="dropdown-toggle whiteText" data-toggle="dropdown" href="/">Other Categories
                             <span className="caret"></span></a>
                             
                                 <ul className="dropdown-menu">
