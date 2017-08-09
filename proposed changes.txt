@@ -1,0 +1,30 @@
+in app.js
+---------
+
+from
+
+currentCategory:""
+
+to 
+currentCategory:"The Hottest"
+
+Enables us to style categories with Well and lets user know what page they are on
+
+
+in Videolist.js
+--------------
+
+<div className = 'vlist'>
+    <h2 className="text-uppercase text-left well">{this.props.currentCategory}</h2>
+    {vlist}
+</div>
+
+added className="text-uppercase text-left well"> in order to style the category
+
+in Videolist.js
+--------------
+moved Hide/Show button up into div panel=footer so description  would have a light blue background
+
+
+
+Add className to pretty up the poster <h4 className="alert alert-warning">Poster: {this.props.user}</h4>

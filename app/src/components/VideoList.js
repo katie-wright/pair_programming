@@ -48,7 +48,7 @@ componentWillMount(){
         })
         return (
                 <div className = 'vlist'>
-                    <h2>{this.props.currentCategory}</h2>
+                    <h2 className="text-uppercase text-left well">{this.props.currentCategory}</h2>
                     {vlist}
                 </div>
         )
@@ -73,21 +73,25 @@ class Video extends Component {
 
                 <div className='col-md-8'>
                     <div className="panel panel-primary">
-                    <div className="panel-heading"><h2 > {this.props.title} </h2></div>
+                    <div className="panel-heading"><h3 > {this.props.title} </h3></div>
                     <div className="panel-body" >
                         <div id={'player' + videoId}>
                         </div>
 
                     <div className="panel-footer">
-                        <h4>User: {this.props.user}</h4>
-                        <h4>Views: {this.props.views}</h4>
-                        <p>Date: {this.props.date}</p>
-                    </div>
-
+                        <h4 className="alert alert-warning">Poster: {this.props.user}</h4>
+                        
+                        
                         <button type="button" className="btn btn-info btn-video" data-toggle="collapse" data-target={"#v" + videoId}>View/Hide Description</button>
                         <div id={"v" + videoId} className="collapse out">
                             <p className ='vDescription'>{this.props.description}</p>  
                         </div>
+                        <p>Date: {this.props.date}</p>
+                        <h4 className="alert alert-warning">Views: {this.props.views}</h4>
+                        
+                    </div>
+
+
 
 
                     </div>
