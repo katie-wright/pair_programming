@@ -99,7 +99,7 @@ class Video extends Component {
                     
                 </div>
 
-                <div className='col-md-4 well well-lg'>
+                <div className='col-md-4 well '>
                     <RelatedVideoList videoId={videoId} />
                 </div>
 

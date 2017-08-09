@@ -46,9 +46,9 @@ class RelatedVideoList extends Component {
 
         return (
 
-            <div class="container">
-                <h2>Related Videos</h2>        
-                <table class="table table-striped">
+            <div className="rvBox">
+                <h3 className="text-left">Related Videos</h3>        
+                <table className="table table-striped">
                     <tbody>
                         {relatedVideoList}
                     </tbody>
